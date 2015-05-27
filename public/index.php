@@ -10,6 +10,7 @@
 
 	use League\Fractal\Manager as FractalManager;
 	use League\Fractal\Resource\Collection as FractalCollection;
+	use mikehaertl\pdftk\Pdf;
 
 	$config = include('../config.php');
 	$app = new \Slim\Slim($config);
@@ -40,23 +41,25 @@
 
 		//var_dump($pdf_data);
 
-		$pdf = Zend_Pdf::load($form_file);
+		$pdf = new Pdf($form_file);
 
 		// Fill Form Data.
-		foreach($pdf_data['data'][0] as $key => $val) {
-			$pdf->setTextField($key, $val);
-		}
+		$pdf->fillForm($pdf_data['data'][0]);
+		$pdf->flatten();
+
+		// Send?
+		$pdf->send($subid . '-' . $formname);
 
 		// Temporary file name
-		$tmp_name = tempnam('../data/tmp');
+		/* $tmp_name = tempnam('../data/tmp');
 		$pdf->save($tmp_name);
 
 		$app->response->headers->set('Content-Type', "application/pdf");
 		$app->response->headers->set('Pragma', "public");
 		$app->response->headers->set('Content-disposition:', 'attachment; filename=' . $subid . '-' . $formname);
 		$app->response->headers->set('Content-Transfer-Encoding', 'binary');
-		readfile($tmp_name);
-		$app->stop();
+		readfile($tmp_name); */
+		//$app->stop();
 	});
 
 	$app->run();
