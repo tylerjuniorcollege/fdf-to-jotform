@@ -1,0 +1,15 @@
+{
+	"name":"tylerjuniorcollege/jotform-fdf",
+	"description":"Simple Slim WebApp to generate pre-filled PDFs from the Jotform API.",
+	"require":{
+		"slim/slim": "2.*",
+		"j4mie/idiorm": "1.5.1",
+		"monolog/monolog": "~1.13",
+		"jotform/jotform-api-php": "dev-master",
+		"league/fractal": "0.11.0",
+		"mikehaertl/php-pdftk":"dev-master"
+	},
+	"autoload": {
+		"classmap":["data/src/"]
+	}
+}
