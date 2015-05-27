@@ -45,21 +45,10 @@
 
 		// Fill Form Data.
 		$pdf->fillForm($pdf_data['data'][0]);
-		$pdf->flatten();
+		//$pdf->flatten();
 
 		// Send?
 		$pdf->send($subid . '-' . $formname);
-
-		// Temporary file name
-		/* $tmp_name = tempnam('../data/tmp');
-		$pdf->save($tmp_name);
-
-		$app->response->headers->set('Content-Type', "application/pdf");
-		$app->response->headers->set('Pragma', "public");
-		$app->response->headers->set('Content-disposition:', 'attachment; filename=' . $subid . '-' . $formname);
-		$app->response->headers->set('Content-Transfer-Encoding', 'binary');
-		readfile($tmp_name); */
-		//$app->stop();
 	});
 
 	$app->run();
