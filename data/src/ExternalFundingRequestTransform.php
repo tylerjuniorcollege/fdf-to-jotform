@@ -58,6 +58,7 @@ class ExternalFundingRequestTransform
 				'q11_grantAgency' => $answers[11]['answer'],
 				'q12_grantAgency12' => $answers[12]['answer'],
 				'q13_grantDue' => $answers[13]['answer'],
+				'q71_notificationDate71' => $answers[71]['answer'],
 				'q14_projectedStart' => $answers[14]['answer'],
 				'q15_projectedEnd' => $answers[15]['answer'],
 				'q4_typeOf[New]' => 'Off',
