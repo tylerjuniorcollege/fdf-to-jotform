@@ -45,10 +45,19 @@
 
 		// Fill Form Data.
 		$pdf->fillForm($pdf_data['data'][0]);
-		//$pdf->flatten();
+		
+		if($app->request->get('flatten')) {
+			$pdf->flatten();
+		}
 
 		// Send?
-		$pdf->send($subid . '-' . $formname);
+		if($app->request->get('filename')) {
+			$filename = $app->request->get('filename');
+		} else {
+			$filename = $subid . '-' . $formname;
+		}
+
+		$pdf->send($filename);
 	});
 
 	$app->run();
