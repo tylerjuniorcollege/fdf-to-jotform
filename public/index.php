@@ -33,9 +33,17 @@
 
 		// Grab Submission Data.
 		$sub_data = $app->jotform->getSubmission($subid);
+		//var_dump($sub_data); die();
+
+		$process = array(
+			array(
+				'answers' => $sub_data['answers'],
+				'sub_id' => $subid
+			)
+		);
 
 		$fractalManager = new FractalManager();
-		$collection = new FractalCollection(array($sub_data['answers'], 'sub_id' => $subid), new $form_transform);
+		$collection = new FractalCollection($process, new $form_transform);
 
 		$pdf_data = $fractalManager->createData($collection)->toArray();
 

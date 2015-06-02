@@ -8,15 +8,15 @@ class ExternalFundingRequestTransform
 	extends TransformerAbstract
 	{
 
-		public function transform($answers) {
+		public function transform($data) {
 			// Checkboxes:
 			$checkboxes = array();
 			foreach(array(4, 21, 22, 23, 24, 46) as $aid) {
-				if(!is_array($answers[$aid]['answer'])) {
+				if(!is_array($data['answers'][$aid]['answer'])) {
 					continue;
 				}
 
-				foreach($answers[$aid]['answer'] as $answer) {
+				foreach($data['answers'][$aid]['answer'] as $answer) {
 					switch($aid) {
 						case 4:
 							$name = 'q4_typeOf[%s]';
@@ -49,23 +49,23 @@ class ExternalFundingRequestTransform
 
 
 			return array_merge(array(
-				'q5_grantWritten' => (!isset($answers[5]['answer']) ? NULL : $answers[5]['answer']),
-				'q6_phoneemail6' => (!isset($answers[6]['answer']) ? NULL : $answers[6]['answer']),
-				'q7_grantSubmitted' => (!isset($answers[7]['answer']) ? NULL : $answers[7]['answer']),
-				'q9_phoneemail9' => (!isset($answers[9]['answer']) ? NULL : $answers[9]['answer']),
-				'q8_projectDirectormanager' => (!isset($answers[8]['answer']) ? NULL : $answers[8]['answer']),
-				'q10_phoneemail' => (!isset($answers[10]['answer']) ? NULL : $answers[10]['answer']),
-				'q11_grantAgency' => (!isset($answers[11]['answer']) ? NULL : $answers[11]['answer']),
-				'q12_grantAgency12' => (!isset($answers[12]['answer']) ? NULL : $answers[12]['answer']),
-				'q13_grantDue' => (!isset($answers[13]['answer']) ? NULL : $answers[13]['answer']),
-				'q71_notificationDate71' => (!isset($answers[71]['answer']) ? NULL : $answers[71]['answer']),
-				'q14_projectedStart' => (!isset($answers[14]['answer']) ? NULL : $answers[14]['answer']),
-				'q15_projectedEnd' => (!isset($answers[15]['answer']) ? NULL : $answers[15]['answer']),
+				'q5_grantWritten' => (!isset($data['answers'][5]['answer']) ? NULL : $data['answers'][5]['answer']),
+				'q6_phoneemail6' => (!isset($data['answers'][6]['answer']) ? NULL : $data['answers'][6]['answer']),
+				'q7_grantSubmitted' => (!isset($data['answers'][7]['answer']) ? NULL : $data['answers'][7]['answer']),
+				'q9_phoneemail9' => (!isset($data['answers'][9]['answer']) ? NULL : $data['answers'][9]['answer']),
+				'q8_projectDirectormanager' => (!isset($data['answers'][8]['answer']) ? NULL : $data['answers'][8]['answer']),
+				'q10_phoneemail' => (!isset($data['answers'][10]['answer']) ? NULL : $data['answers'][10]['answer']),
+				'q11_grantAgency' => (!isset($data['answers'][11]['answer']) ? NULL : $data['answers'][11]['answer']),
+				'q12_grantAgency12' => (!isset($data['answers'][12]['answer']) ? NULL : $data['answers'][12]['answer']),
+				'q13_grantDue' => (!isset($data['answers'][13]['answer']) ? NULL : $data['answers'][13]['answer']),
+				'q71_notificationDate71' => (!isset($data['answers'][71]['answer']) ? NULL : $data['answers'][71]['answer']),
+				'q14_projectedStart' => (!isset($data['answers'][14]['answer']) ? NULL : $data['answers'][14]['answer']),
+				'q15_projectedEnd' => (!isset($data['answers'][15]['answer']) ? NULL : $data['answers'][15]['answer']),
 				'q4_typeOf[New]' => 'Off',
 				'q4_typeOf[Renewal]' => 'Off',
-				'q16_titleOf' => (!isset($answers[16]['answer']) ? NULL : $answers[16]['answer']),
-				'q19_totalGrant' => (!isset($answers[19]['answer']) ? NULL : $answers[19]['answer']),
-				'q20_maximumAmount' => (!isset($answers[20]['answer']) ? NULL : $answers[20]['answer']),
+				'q16_titleOf' => (!isset($data['answers'][16]['answer']) ? NULL : $data['answers'][16]['answer']),
+				'q19_totalGrant' => (!isset($data['answers'][19]['answer']) ? NULL : $data['answers'][19]['answer']),
+				'q20_maximumAmount' => (!isset($data['answers'][20]['answer']) ? NULL : $data['answers'][20]['answer']),
 				'q21_isHuman21[NO]' => 'Off',
 				'q21_isHuman21[YES]' => 'Off',
 				'q22_isNew[NO]' => 'Off',
@@ -74,46 +74,46 @@ class ExternalFundingRequestTransform
 				'q23_areAdditional[YES]' => 'Off',
 				'q24_isNew24[NO]' => 'Off',
 				'q24_isNew24[YES]' => 'Off',
-				'q25_pleaseProvide25' => (!isset($answers[25]['answer']) ? NULL : $answers[25]['answer']),
-				'q26_isThere26' => (!isset($answers[26]['answer']) ? NULL : $answers[26]['answer']),
-				'q27_pleaseDescribe' => (!isset($answers[27]['answer']) ? NULL : $answers[27]['answer']),
-				'q29_briefOverview' => (!isset($answers[39]['answer']) ? NULL : $answers[39]['answer']),
-				'q49_federal' => (!isset($answers[49]['answer']) ? NULL : $answers[49]['answer']),
-				'q50_state' => (!isset($answers[50]['answer']) ? NULL : $answers[50]['answer']),
-				'q51_local' => (!isset($answers[51]['answer']) ? NULL : $answers[51]['answer']),
-				'q52_other' => (!isset($answers[52]['answer']) ? NULL : $answers[52]['answer']),
-				'q55_salaries' => (!isset($answers[55]['answer']) ? NULL : $answers[55]['answer']),
-				'q56_benefits' => (!isset($answers[56]['answer']) ? NULL : $answers[56]['answer']),
-				'q57_services' => (!isset($answers[57]['answer']) ? NULL : $answers[57]['answer']),
-				'q58_supplies' => (!isset($answers[58]['answer']) ? NULL : $answers[58]['answer']),
-				'q59_capitalOutlay' => (!isset($answers[59]['answer']) ? NULL : $answers[59]['answer']),
-				'q60_indirectCosts' => (!isset($answers[60]['answer']) ? NULL : $answers[60]['answer']),
-				'q61_adminCosts' => (!isset($answers[61]['answer']) ? NULL : $answers[61]['answer']),
-				'q34_input34' => (!isset($answers[34]['answer']) ? NULL : $answers[34]['answer']),
-				'q36_input36' => (!isset($answers[36]['answer']) ? NULL : $answers[36]['answer']),
-				'q39_input39' => (!isset($answers[39]['answer']) ? NULL : $answers[39]['answer']),
-				'q41_input41' => (!isset($answers[41]['answer']) ? NULL : $answers[41]['answer']),
-				'q43_input43' => (!isset($answers[43]['answer']) ? NULL : $answers[43]['answer']),
-				'q44_reviewedBy' => (!isset($answers[44]['answer']) ? NULL : $answers[44]['answer']),
-				'q65_date[month]' => (!isset($answers[65]['answer']) ? NULL : $answers[65]['answer']['month']),
-				'q65_date[day]' => (!isset($answers[65]['answer']) ? NULL : $answers[65]['answer']['day']),
-				'q65_date[year]' => (!isset($answers[65]['answer']) ? NULL : $answers[65]['answer']['year']),
-				'q66_date[month]' => (!isset($answers[66]['answer']) ? NULL : $answers[66]['answer']['month']),
-				'q66_date[day]' => (!isset($answers[66]['answer']) ? NULL : $answers[66]['answer']['day']),
-				'q66_date[year]' => (!isset($answers[66]['answer']) ? NULL : $answers[66]['answer']['year']),
-				'q67_date[month]' => (!isset($answers[67]['answer']) ? NULL : $answers[67]['answer']['month']),
-				'q67_date[day]' => (!isset($answers[67]['answer']) ? NULL : $answers[67]['answer']['day']),
-				'q67_date[year]' => (!isset($answers[67]['answer']) ? NULL : $answers[67]['answer']['year']),
-				'q68_date[month]' => (!isset($answers[68]['answer']) ? NULL : $answers[68]['answer']['month']),
-				'q68_date[day]' => (!isset($answers[68]['answer']) ? NULL : $answers[68]['answer']['day']),
-				'q68_date[year]' => (!isset($answers[68]['answer']) ? NULL : $answers[68]['answer']['year']),
-				'q69_date[month]' => (!isset($answers[69]['answer']) ? NULL : $answers[69]['answer']['month']),
-				'q69_date[day]' => (!isset($answers[69]['answer']) ? NULL : $answers[69]['answer']['day']),
-				'q69_date[year]' => (!isset($answers[69]['answer']) ? NULL : $answers[69]['answer']['year']),
+				'q25_pleaseProvide25' => (!isset($data['answers'][25]['answer']) ? NULL : $data['answers'][25]['answer']),
+				'q26_isThere26' => (!isset($data['answers'][26]['answer']) ? NULL : $data['answers'][26]['answer']),
+				'q27_pleaseDescribe' => (!isset($data['answers'][27]['answer']) ? NULL : $data['answers'][27]['answer']),
+				'q29_briefOverview' => (!isset($data['answers'][39]['answer']) ? NULL : $data['answers'][39]['answer']),
+				'q49_federal' => (!isset($data['answers'][49]['answer']) ? NULL : $data['answers'][49]['answer']),
+				'q50_state' => (!isset($data['answers'][50]['answer']) ? NULL : $data['answers'][50]['answer']),
+				'q51_local' => (!isset($data['answers'][51]['answer']) ? NULL : $data['answers'][51]['answer']),
+				'q52_other' => (!isset($data['answers'][52]['answer']) ? NULL : $data['answers'][52]['answer']),
+				'q55_salaries' => (!isset($data['answers'][55]['answer']) ? NULL : $data['answers'][55]['answer']),
+				'q56_benefits' => (!isset($data['answers'][56]['answer']) ? NULL : $data['answers'][56]['answer']),
+				'q57_services' => (!isset($data['answers'][57]['answer']) ? NULL : $data['answers'][57]['answer']),
+				'q58_supplies' => (!isset($data['answers'][58]['answer']) ? NULL : $data['answers'][58]['answer']),
+				'q59_capitalOutlay' => (!isset($data['answers'][59]['answer']) ? NULL : $data['answers'][59]['answer']),
+				'q60_indirectCosts' => (!isset($data['answers'][60]['answer']) ? NULL : $data['answers'][60]['answer']),
+				'q61_adminCosts' => (!isset($data['answers'][61]['answer']) ? NULL : $data['answers'][61]['answer']),
+				'q34_input34' => (!isset($data['answers'][34]['answer']) ? NULL : $data['answers'][34]['answer']),
+				'q36_input36' => (!isset($data['answers'][36]['answer']) ? NULL : $data['answers'][36]['answer']),
+				'q39_input39' => (!isset($data['answers'][39]['answer']) ? NULL : $data['answers'][39]['answer']),
+				'q41_input41' => (!isset($data['answers'][41]['answer']) ? NULL : $data['answers'][41]['answer']),
+				'q43_input43' => (!isset($data['answers'][43]['answer']) ? NULL : $data['answers'][43]['answer']),
+				'q44_reviewedBy' => (!isset($data['answers'][44]['answer']) ? NULL : $data['answers'][44]['answer']),
+				'q65_date[month]' => (!isset($data['answers'][65]['answer']) ? NULL : $data['answers'][65]['answer']['month']),
+				'q65_date[day]' => (!isset($data['answers'][65]['answer']) ? NULL : $data['answers'][65]['answer']['day']),
+				'q65_date[year]' => (!isset($data['answers'][65]['answer']) ? NULL : $data['answers'][65]['answer']['year']),
+				'q66_date[month]' => (!isset($data['answers'][66]['answer']) ? NULL : $data['answers'][66]['answer']['month']),
+				'q66_date[day]' => (!isset($data['answers'][66]['answer']) ? NULL : $data['answers'][66]['answer']['day']),
+				'q66_date[year]' => (!isset($data['answers'][66]['answer']) ? NULL : $data['answers'][66]['answer']['year']),
+				'q67_date[month]' => (!isset($data['answers'][67]['answer']) ? NULL : $data['answers'][67]['answer']['month']),
+				'q67_date[day]' => (!isset($data['answers'][67]['answer']) ? NULL : $data['answers'][67]['answer']['day']),
+				'q67_date[year]' => (!isset($data['answers'][67]['answer']) ? NULL : $data['answers'][67]['answer']['year']),
+				'q68_date[month]' => (!isset($data['answers'][68]['answer']) ? NULL : $data['answers'][68]['answer']['month']),
+				'q68_date[day]' => (!isset($data['answers'][68]['answer']) ? NULL : $data['answers'][68]['answer']['day']),
+				'q68_date[year]' => (!isset($data['answers'][68]['answer']) ? NULL : $data['answers'][68]['answer']['year']),
+				'q69_date[month]' => (!isset($data['answers'][69]['answer']) ? NULL : $data['answers'][69]['answer']['month']),
+				'q69_date[day]' => (!isset($data['answers'][69]['answer']) ? NULL : $data['answers'][69]['answer']['day']),
+				'q69_date[year]' => (!isset($data['answers'][69]['answer']) ? NULL : $data['answers'][69]['answer']['year']),
 				'q46_approved[YES]' => 'Off',
 				'q46_approved[NO]' => 'Off',
-				'q47_ifDenied' => (!isset($answers[47]['answer']) ? NULL : $answers[47]['answer']),
-				'editSubmission' => $answers['sub_id']
+				'q47_ifDenied' => (!isset($data['answers'][47]['answer']) ? NULL : $data['answers'][47]['answer']),
+				'editSubmission' => $data['sub_id']
 			), $checkboxes);
 		}
 	}
