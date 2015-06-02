@@ -112,7 +112,8 @@ class ExternalFundingRequestTransform
 				'q69_date[year]' => $answers[69]['answer']['year'],
 				'q46_approved[YES]' => 'Off',
 				'q46_approved[NO]' => 'Off',
-				'q47_ifDenied' => $answers[47]['answer']
+				'q47_ifDenied' => $answers[47]['answer'],
+				'editSubmission' => $answers['sub_id']
 			), $checkboxes);
 		}
 	}
