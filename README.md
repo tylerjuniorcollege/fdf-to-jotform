@@ -5,4 +5,7 @@ PHP Script to work with the JotForm API and Adobe PDF Forms
 This is a simple "script"/webapp to generate PDF Forms with Data populated from the JotForm API.
 
 ## Installation
-Installation is run using Composer. After running the Composer Install command, either upload and point your domain to 
+Installation is run using Composer.
+
+## Creating New Forms
+The application uses sqlite to link the PDF forms and the jotform forms.
