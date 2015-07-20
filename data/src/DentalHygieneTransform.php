@@ -74,10 +74,10 @@ class DentalHygieneTransform
 				'chem1405repeated' => array('id' => 24, 'points' => 1),
 				'biol1322repeated' => array('id' => 28, 'points' => 1),
 				'engl1301repeated' => array('id' => 32, 'points' => 0.5),
-				'psycElectiverepeated'> array('id' => 36, 'points' => 0.5),
-				'sociElectiverepeated'> array('id' => 40, 'points' => 0.5),
-				'humafineArtrepeated'> array('id' => 44, 'points' => 0.5),
-				'spchElectiverepeated'> array('id' => 48, 'points' => 0.5)
+				'psycElectiverepeated' => array('id' => 36, 'points' => 0.5),
+				'sociElectiverepeated' => array('id' => 40, 'points' => 0.5),
+				'humafineArtrepeated' => array('id' => 44, 'points' => 0.5),
+				'spchElectiverepeated' => array('id' => 48, 'points' => 0.5)
 			) as $name => $val) {
 				$points[$name] = $this->boolToPoints($data['answers'][$val['id']]['answer'], $val['points']);
 				$total_points -= $this->boolToPoints($data['answers'][$val['id']]['answer'], $val['points']);
