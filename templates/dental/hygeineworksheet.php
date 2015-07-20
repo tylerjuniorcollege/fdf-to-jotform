@@ -37,6 +37,7 @@ if(isset($data['answers'])) {
   </head>
 
   <body>
+    <?php var_dump($data); ?>
     <div class="container">
       <div class="row page-header">
         <h3>Dental Hygiene Admission Worksheet</h3>
@@ -58,7 +59,7 @@ if(isset($data['answers'])) {
           </div>
         </div>
         <div class="form-group">
-          <label for="input_4" class="col-sm-2 control-label">Applicant Name</label>
+          <label for="input_4" class="col-sm-2 control-label">TJC Email Address</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" name="q4_tjcEmail" placeholder="ex: student@tjc.edu" value="<?= (isset($answers[4]['answer']) ? $answers[4]['answer'] : '' )?>">
           </div>
@@ -87,7 +88,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-3 checkbox">
                 <input type="hidden" name="q8_biol24018" value="No">
                 <label>
-                  <input type="checkbox" name="q8_biol24018" class="completed" id="biol2401_completed" value="Yes"<?=(isset($answers[8]['answer']) && $answers[8]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or Better.
+                  <input type="checkbox" name="q8_biol24018" class="completed" id="biol2401_completed" value="Yes"<?=(isset($answers[8]['answer']) && $answers[8]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or better.
                 </label>
               </div>
               <div class="col-sm-2 checkbox">
@@ -118,7 +119,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-3 checkbox">
                 <input type="hidden" name="q13_biol240213" value="No">
                 <label>
-                  <input type="checkbox" name="q13_biol240213" class="completed" id="biol2402_completed" value="Yes"<?=(isset($answers[13]['answer']) && $answers[13]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or Better.
+                  <input type="checkbox" name="q13_biol240213" class="completed" id="biol2402_completed" value="Yes"<?=(isset($answers[13]['answer']) && $answers[13]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or better.
                 </label>
               </div>
               <div class="col-sm-2 checkbox">
@@ -149,7 +150,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-3 checkbox">
                 <input type="hidden" name="q18_biol242018" value="No">
                 <label>
-                  <input type="checkbox" name="q18_biol242018" class="completed" id="biol2420_completed" value="Yes"<?=(isset($answers[18]['answer']) && $answers[18]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or Better.
+                  <input type="checkbox" name="q18_biol242018" class="completed" id="biol2420_completed" value="Yes"<?=(isset($answers[18]['answer']) && $answers[18]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or better.
                 </label>
               </div>
               <div class="col-sm-2 checkbox">
@@ -180,7 +181,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-3 checkbox">
                 <input type="hidden" name="q23_chem14051406141123" value="No">
                 <label>
-                  <input type="checkbox" name="q23_chem14051406141123" class="completed" id="chem140514061411_completed" value="Yes"<?=(isset($answers[23]['answer']) && $answers[23]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or Better.
+                  <input type="checkbox" name="q23_chem14051406141123" class="completed" id="chem140514061411_completed" value="Yes"<?=(isset($answers[23]['answer']) && $answers[23]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or better.
                 </label>
               </div>
               <div class="col-sm-2 checkbox">
@@ -388,10 +389,15 @@ if(isset($data['answers'])) {
           <div class="col-sm-10">
             <div class="form-group">
               <div class="col-sm-11">
-                <div class="checkbox">
-                  <input type="hidden" name="q50_indistrictFor" value="No">
+                Are you classified as an "In-District" student for Tyler Junior College?
+                <div class="radio">
                   <label>
-                    <input type="checkbox" class="addReq point-2" name="q50_indistrictFor" id="tjcInDistrict" value="Yes"<?=(isset($answers[50]['answer']) && $answers[50]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Are you classified as an "In-District" student for Tyler Junior College?
+                    <input type="radio" class="addReq point-2" name="q50_indistrictFor" id="tjcInDistrict" value="Yes"<?=(isset($answers[50]['answer']) && $answers[50]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Yes
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" class="rmReq" name="q50_indistrictFor" id="tjcInDistrict_not" value="No"<?=(isset($answers[50]['answer']) && $answers[50]['answer'] == "No" ? ' checked="checked"' : ''); ?>> No
                   </label>
                 </div>
               </div>
@@ -414,7 +420,7 @@ if(isset($data['answers'])) {
                 <div class="checkbox">
                   <input type="hidden" name="q51_hprs1201" value="No">
                   <label>
-                    <input type="checkbox" class="addReq point-1" name="q51_hprs1201" id="hprs1201" value="Yes"<?=(isset($answers[51]['answer']) && $answers[51]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Introduction to Health Professions <strong>AND</strong><br /> Essentials of Medical Law Ethics for Health Professionals<br /><small>Completed with a "B" or Better in both courses.</small>
+                    <input type="checkbox" class="addReq point-1" name="q51_hprs1201" id="hprs1201" value="Yes"<?=(isset($answers[51]['answer']) && $answers[51]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Introduction to Health Professions <strong>AND</strong><br /> Essentials of Medical Law Ethics for Health Professionals<br /><small>Completed with a "B" or better in both courses.</small>
                   </label>
                 </div>
               </div>
@@ -432,7 +438,7 @@ if(isset($data['answers'])) {
                 <div class="checkbox">
                   <input type="hidden" name="q52_hitt1305" value="No">
                   <label>
-                    <input type="checkbox" class="addReq point-1" name="q52_hitt1305" id="hitt1305" value="Yes"<?=(isset($answers[52]['answer']) && $answers[52]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Medical Terminology I<br /><small>Course Completed with a "B" or Better.</small>
+                    <input type="checkbox" class="addReq point-1" name="q52_hitt1305" id="hitt1305" value="Yes"<?=(isset($answers[52]['answer']) && $answers[52]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Medical Terminology I<br /><small>Course Completed with a "B" or better.</small>
                   </label>
                 </div>
               </div>
@@ -450,7 +456,7 @@ if(isset($data['answers'])) {
                 <div class="checkbox">
                   <input type="hidden" name="q53_hitt1303" value="No">
                   <label>
-                    <input type="checkbox" class="addReq point-1" name="q53_hitt1303" id="hitt1303" value="Yes"<?=(isset($answers[53]['answer']) && $answers[53]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Medical Terminology II<br /><small>Course Completed with a "B" or Better.</small>
+                    <input type="checkbox" class="addReq point-1" name="q53_hitt1303" id="hitt1303" value="Yes"<?=(isset($answers[53]['answer']) && $answers[53]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Medical Terminology II<br /><small>Course Completed with a "B" or better.</small>
                   </label>
                 </div>
               </div>
@@ -643,6 +649,17 @@ if(isset($data['answers'])) {
         totalPoints(); // Recalc totalPoints.
       };
 
+      var calcRmReq = function(id) {
+        var pointEle = $(id).attr("id").replace("_not","_points");
+        var pointTotal = 0;
+        $('#' + pointEle).removeClass("completedAddReq");
+
+        // Update points.
+        $('#' + pointEle).val(pointTotal);
+
+        totalPoints();
+      };
+
       $(document).ready(function(){
         $('body').on('change load', '.grade', function(){ 
           calcGrade($(this)); 
@@ -664,6 +681,10 @@ if(isset($data['answers'])) {
           calcAddReq($(this));
         });
 
+        $('body').on('change', '.rmReq', function() {
+          calcRmReq($(this));
+        });
+
         // Now we need to recalculate all of the various points, if the data was loaded on page load.
         $('.points').each(function() {
           var datapointId = '#' + $(this).attr('id').replace("_points", "");
@@ -676,7 +697,6 @@ if(isset($data['answers'])) {
               calcCompleted($(datapointId + '_completed'));
             }
           } else if($(datapointId).length > 0) {
-            console.log(datapointId);
             // These are the other ones.
             if(datapointId == '#hesiScore') {
               calcComposite($(datapointId));

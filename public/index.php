@@ -23,7 +23,7 @@
 
 	$app->get('/render/:subid/:formname', function($subid, $formname) use($app) {
 		// First we see if the form is there, and then we load in the appopriate data.
-		var_dump($formname); die();
+		//var_dump($formname); die();
 		if(!is_file('../data/forms/' . $formname)) {
 			// Throw error
 			$app->halt(404, 'PDF File Does Not Exist');
