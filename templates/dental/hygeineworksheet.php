@@ -37,7 +37,6 @@ if(isset($data['answers'])) {
   </head>
 
   <body>
-    <?php var_dump($data); ?>
     <div class="container">
       <div class="row page-header">
         <h3>Dental Hygiene Admission Worksheet</h3>
