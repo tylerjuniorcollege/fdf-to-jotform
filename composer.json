@@ -3,6 +3,7 @@
 	"description":"Simple Slim WebApp to generate pre-filled PDFs from the Jotform API.",
 	"require":{
 		"slim/slim": "2.*",
+		"tylerjuniorcollege/slim-layout":"dev-master",
 		"j4mie/idiorm": "1.5.1",
 		"monolog/monolog": "~1.13",
 		"jotform/jotform-api-php": "dev-master",
