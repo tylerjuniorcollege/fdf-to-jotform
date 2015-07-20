@@ -115,7 +115,7 @@ class DentalHygieneTransform
 				'q11_biol240211' => (isset($data['answers'][11]['answer']) ? $data['answers'][11]['answer'] : NULL),
 				'q12_biol240212' => (isset($data['answers'][12]['answer']) ? $data['answers'][12]['answer'] : NULL),
 
-				'q15_biol2420' => (isset($data['answers'][13]['answer']) ? $data['answers'][13]['answer'] : NULL),
+				'q15_biol2420' => (isset($data['answers'][15]['answer']) ? $data['answers'][13]['answer'] : NULL),
 				'q16_biol242016' => (isset($data['answers'][16]['answer']) ? $data['answers'][16]['answer'] : NULL),
 				'q17_biol242017' => (isset($data['answers'][17]['answer']) ? $data['answers'][17]['answer'] : NULL),
 
