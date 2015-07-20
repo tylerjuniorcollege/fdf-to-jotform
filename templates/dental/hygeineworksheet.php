@@ -38,9 +38,11 @@ if(isset($data['answers'])) {
 
   <body>
     <div class="container">
+      <?php if(!isset($data['framed'])): ?>
       <div class="row page-header">
         <h3>Dental Hygiene Admission Worksheet</h3>
       </div>
+      <?php endif; ?>
       <form class="form-horizontal" action="https://submit.jotformpro.com/submit/51525414183955/" method="post" name="form_51525414183955">
         <input type="hidden" name="formID" value="51525414183955">
 <?php if(isset($data['id'])): ?>

@@ -70,10 +70,11 @@
 
 	$app->get('/jotform/submission/:subid', function($subid) use($app) {
 		$sub_data = $app->jotform->getSubmission($subid);
+		if($app->request->get('framed')) {
+			$sub_data['framed'] = true;
+		}
 
 		$form_details = \ORM::for_table('form_html')->join('form', array('form.id', '=', 'form_html.form_id'))->where('form.jotformid', $sub_data['form_id'])->find_one();
-
-		//var_dump($sub_data);
 
 		// Get the form, based on the id, and then input the answers.
 		$app->render($form_details->html_file, $sub_data);
@@ -81,8 +82,13 @@
 
 	$app->get('/jotform/form/:formid', function($formid) use($app) {
 		$form_details = \ORM::for_table('form_html')->join('form', array('form.id', '=', 'form_html.form_id'))->where('form.jotformid', $formid)->find_one();
+		$data = array();
 
-		$app->render($form_details->html_file, array());
+		if($app->request->get('framed')) {
+			$data['framed'] = true;
+		}
+
+		$app->render($form_details->html_file, $data);
 	});
 
 	$app->group('/a', function() use($app) {
