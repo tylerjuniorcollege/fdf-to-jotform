@@ -15,6 +15,9 @@
 	$config = include('../config.php');
 	$app = new \Slim\Slim($config);
 
+	$app->config('view', new \TJC\View\Layout());
+	$app->view->setLayout('layout/layout.php');
+
 	\ORM::configure('sqlite:../data/forms.db');
 
 	$app->container->singleton('jotform', function() use($app) {
@@ -23,7 +26,6 @@
 
 	$app->get('/render/:subid/:formname', function($subid, $formname) use($app) {
 		// First we see if the form is there, and then we load in the appopriate data.
-		//var_dump($formname); die();
 		if(!is_file('../data/forms/' . $formname)) {
 			// Throw error
 			$app->halt(404, 'PDF File Does Not Exist');
@@ -76,6 +78,9 @@
 
 		$form_details = \ORM::for_table('form_html')->join('form', array('form.id', '=', 'form_html.form_id'))->where('form.jotformid', $sub_data['form_id'])->find_one();
 
+		// Set the Title for the form.
+		$app->view->appendTitle($form_details->name);
+
 		// Get the form, based on the id, and then input the answers.
 		$app->render($form_details->html_file, $sub_data);
 	});
@@ -87,6 +92,9 @@
 		if($app->request->get('framed')) {
 			$data['framed'] = true;
 		}
+
+		// Set the Title for the form.
+		$app->view->appendTitle($form_details->name);
 
 		$app->render($form_details->html_file, $data);
 	});
