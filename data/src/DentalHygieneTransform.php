@@ -60,7 +60,8 @@ class DentalHygieneTransform
 				'biol2401completed' => 8,
 				'biol2402completed' => 13,
 				'biol2420completed' => 18,
-				'chem1405completed' => 23
+				'chem1405completed' => 23,
+				'biol1322completed' => 61
 			) as $name => $id) {
 				$points[$name] = $this->boolToPoints($data['answers'][$id]['answer'], 1);
 				$total_points += $this->boolToPoints($data['answers'][$id]['answer'], 1);
