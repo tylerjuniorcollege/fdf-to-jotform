@@ -78,7 +78,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 checkbox">
                 <input type="hidden" name="q9_biol24019" value="No">
                 <label>
-                  <input type="checkbox" name="q9_biol24019" class="repeated" id="biol2401_repeated" value="Yes"<?=(isset($answers[9]['answer']) && $answers[9]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q9_biol24019" class="repeated" id="biol2401_repeated" value="Yes"<?=(isset($answers[9]['answer']) && $answers[9]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
@@ -109,7 +109,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 checkbox">
                 <input type="hidden" name="q14_biol240214" value="No">
                 <label>
-                  <input type="checkbox" name="q14_biol240214" class="repeated" id="biol2402_repeated" value="Yes"<?=(isset($answers[14]['answer']) && $answers[14]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q14_biol240214" class="repeated" id="biol2402_repeated" value="Yes"<?=(isset($answers[14]['answer']) && $answers[14]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
@@ -140,7 +140,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 checkbox">
                 <input type="hidden" name="q19_biol242019" value="No">
                 <label>
-                  <input type="checkbox" name="q19_biol242019" class="repeated" id="biol2420_repeated" value="Yes"<?=(isset($answers[19]['answer']) && $answers[19]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q19_biol242019" class="repeated" id="biol2420_repeated" value="Yes"<?=(isset($answers[19]['answer']) && $answers[19]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
@@ -171,18 +171,13 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 checkbox">
                 <input type="hidden" name="q24_chem14051406141124" value="No">
                 <label>
-                  <input type="checkbox" name="q24_chem14051406141124" class="repeated" id="chem140514061411_repeated" value="Yes"<?=(isset($answers[24]['answer']) && $answers[24]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q24_chem14051406141124" class="repeated" id="chem140514061411_repeated" value="Yes"<?=(isset($answers[24]['answer']) && $answers[24]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
                 Points: <input type="text" class="form-control points" id="chem140514061411_points" value="0" readonly>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            Include ALL Grades earned on or after Feburary 16, 2014; If there are multiple grades for the same course number, consider highest grade earned on or after Feburary 16, 2014.
           </div>
         </div>
         <div class="form-group">
@@ -198,10 +193,16 @@ if(isset($data['answers'])) {
               <div class="col-sm-2">
                 Year: <input type="text" class="form-control" id="input_27" name="q27_biol132227" placeholder="ex: 2005" value="<?= (isset($answers[27]['answer']) ? $answers[27]['answer'] : ''); ?>">
               </div>
-              <div class="col-sm-2 col-md-offset-2 checkbox">
+              <div class="col-md-2 checkbox">
+                <input type="hidden" name="q61_biol132261" value="No">
+                <label>
+                  <input type="checkbox" name="q61_biol132261" class="completed" id="biol1322_completed" value="Yes"<?=(isset($answers[23]['answer']) && $answers[23]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or better.
+                </label>
+              </div>
+              <div class="col-sm-2 checkbox">
                 <input type="hidden" name="q28_biol132228" value="No">
                 <label>
-                  <input type="checkbox" name="q28_biol132228" class="repeated" id="biol1322_repeated" value="Yes"<?=(isset($answers[28]['answer']) && $answers[28]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q28_biol132228" class="repeated" id="biol1322_repeated" value="Yes"<?=(isset($answers[28]['answer']) && $answers[28]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
@@ -231,7 +232,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 col-md-offset-2 checkbox">
                 <input type="hidden" name="q32_engl130132" value="No">
                 <label>
-                  <input type="checkbox" name="q32_engl130132" class="repeated repeated-half" id="engl1301_repeated" value="Yes"<?=(isset($answers[32]['answer']) && $answers[32]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q32_engl130132" class="repeated repeated-half" id="engl1301_repeated" value="Yes"<?=(isset($answers[32]['answer']) && $answers[32]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
@@ -256,7 +257,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 col-md-offset-2 checkbox">
                 <input type="hidden" name="q36_psycElective36" value="No">
                 <label>
-                  <input type="checkbox" name="q36_psycElective36" class="repeated repeated-half" id="psycElective_repeated" value="Yes"<?=(isset($answers[36]['answer']) && $answers[36]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q36_psycElective36" class="repeated repeated-half" id="psycElective_repeated" value="Yes"<?=(isset($answers[36]['answer']) && $answers[36]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
@@ -281,7 +282,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 col-md-offset-2 checkbox">
                 <input type="hidden" name="q40_sociElective40" value="No">
                 <label>
-                  <input type="checkbox" name="q40_sociElective40" class="repeated repeated-half" id="sociElective_repeated" value="Yes"<?=(isset($answers[40]['answer']) && $answers[40]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q40_sociElective40" class="repeated repeated-half" id="sociElective_repeated" value="Yes"<?=(isset($answers[40]['answer']) && $answers[40]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
@@ -306,7 +307,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 col-sm-offset-2 checkbox">
                 <input type="hidden" name="q44_humafineArt44" value="No">
                 <label>
-                  <input type="checkbox" name="q44_humafineArt44" class="repeated repeated-half" id="humaFineArt_repeated" value="Yes"<?=(isset($answers[44]['answer']) && $answers[44]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q44_humafineArt44" class="repeated repeated-half" id="humaFineArt_repeated" value="Yes"<?=(isset($answers[44]['answer']) && $answers[44]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-md-2">
@@ -331,7 +332,7 @@ if(isset($data['answers'])) {
               <div class="col-sm-2 col-sm-offset-2 checkbox">
                 <input type="hidden" name="q48_spchElective48" value="No">
                 <label>
-                  <input type="checkbox" name="q48_spchElective48" class="repeated repeated-half" id="spchElective_repeated" value="Yes"<?=(isset($answers[48]['answer']) && $answers[48]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated in the last 5 years.
+                  <input type="checkbox" name="q48_spchElective48" class="repeated repeated-half" id="spchElective_repeated" value="Yes"<?=(isset($answers[48]['answer']) && $answers[48]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was repeated for a higher grade.
                 </label>
               </div>
               <div class="col-sm-2">
@@ -346,21 +347,53 @@ if(isset($data['answers'])) {
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-2 control-label">HESI Score</label>
-          <div class="col-sm-10">
+          <div class="col-md-8">
             <div class="form-group">
-              <div class="col-sm-8">
-                Based on the following five sections: <br />
-                a) Math (minimum 75% required)&nbsp;&nbsp;&nbsp;&nbsp;b) Reading (minimum 75% required)<br />
-                c) Vocabulary/General Knowledge&nbsp;&nbsp;&nbsp;&nbsp;d) Chemistry&nbsp;&nbsp;&nbsp;&nbsp;<br />
-                e) Anatomy &amp; Physiology
+              <label for="hesi_reading_score" class="col-sm-6 control-label">HESI Reading Score</label>
+              <div class="col-sm-6">
+                <input type="text" name="q56_hesiReading" class="hesi_score form-control" value="<?= (isset($answers[56]['answer']) ? $answers[56]['answer'] : ''); ?>">
+                <p class="help-block">Minimum 75% Required</p>
               </div>
-              <div class="col-sm-2">
-                Composite Score: <input type="text" name="q49_hesiScore" id="hesiScore" value="<?= (isset($answers[49]['answer']) ? $answers[49]['answer'] : ''); ?>" class="form-control" placeholder="ex: 30">
+            </div>
+            <div class="form-group">
+              <label for="hesi_math_score" class="col-sm-6 control-label">HESI Math Score</label>
+              <div class="col-sm-6">
+                <input type="text" name="q57_hesiMath" class="hesi_score form-control" value="<?= (isset($answers[57]['answer']) ? $answers[57]['answer'] : ''); ?>">
+                <p class="help-block">Minimum 75% Required</p>
               </div>
-              <div class="col-sm-2">
-                Points: <input type="text" class="form-control points" id="hesiScore_points" value="0" readonly>
+            </div>
+            <div class="form-group">
+              <label for="hesi_vocabulary_score" class="col-sm-6 control-label">HESI Vocabulary Score</label>
+              <div class="col-sm-6">
+                <input type="text" name="q58_hesiVocabulary" class="hesi_score form-control" value="<?= (isset($answers[58]['answer']) ? $answers[58]['answer'] : ''); ?>">
               </div>
+            </div>
+            <div class="form-group">
+              <label for="hesi_anatomy_score" class="col-sm-6 control-label">HESI Anatomy Score</label>
+              <div class="col-sm-6">
+                <input type="text" name="q59_hesiAnatomy" class="hesi_score form-control" value="<?= (isset($answers[59]['answer']) ? $answers[59]['answer'] : ''); ?>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="hesi_chemistry_score" class="col-sm-6 control-label">HESI Chemistry Score</label>
+              <div class="col-sm-6">
+                <input type="text" name="q60_hesiChemistry" class="hesi_score form-control" value="<?= (isset($answers[60]['answer']) ? $answers[60]['answer'] : ''); ?>">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="col-sm-6 control-label">HESI Composite Score</label>
+              <div class="col-sm-6">
+                <input type="text" name="q49_hesiScore" id="hesiScore" value="<?= (isset($answers[49]['answer']) ? $answers[49]['answer'] : ''); ?>" class="form-control" placeholder="ex: 30" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <div class="col-sm-2 col-sm-offset-10">
+              Points: <input type="text" class="form-control points" id="hesiScore_points" value="0" readonly>
             </div>
           </div>
         </div>
@@ -394,7 +427,7 @@ if(isset($data['answers'])) {
         </div>
         <div class="panel panel-info">
           <div class="panel-heading">
-            <h3 class="panel-title">Other Requirements</h3>
+            <h3 class="panel-title">Bonus Points</h3>
           </div>
         </div>
         <div class="form-group">
@@ -602,15 +635,25 @@ if(isset($data['answers'])) {
       };
 
       var calcComposite = function(id) {
-        var pointEle = $(id).attr("id") + "_points";
-        var compScore = parseFloat($(id).val());
-        var pointTotal = 0;
+        // First we need to calculate the Composite Score before updating the points.
+        var scores = 0;
+        $('.hesi_score').each(function() {
+          if($.isNumeric($(this).val())) {
+            // add all of the scores up together.
+            scores += parseInt($(this).val());
+          }
+        });
 
-        if($.isNumeric(compScore)) {
-          pointTotal = compScore * 0.30;
-        }
+        // We Divide by 5.
+        scores /= 5;
 
-        $('#' + pointEle).val(pointTotal);
+        $('#hesiScore').val(scores);        
+
+        scores *= 0.30;
+
+        var points = (Math.round(scores * 100) / 100);
+
+        $("#hesiScore_points").val(points);
 
         totalPoints();        
       };
@@ -657,7 +700,7 @@ if(isset($data['answers'])) {
           calcCompleted($(this));
         });
 
-        $('body').on('change', '#hesiScore', function() {
+        $('body').on('change', '.hesi_score', function() {
           calcComposite($(this));
         });
 
