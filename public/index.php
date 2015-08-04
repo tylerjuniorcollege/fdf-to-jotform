@@ -32,8 +32,10 @@
 		} else {
 			$form_file = '../data/forms/' . $formname;
 
-			$form_array = $app->config('pdf_forms');
-			$form_transform = $form_array[$formname];
+			/* $form_array = $app->config('pdf_forms');
+			$form_transform = $form_array[$formname]; */
+			$form_data = \ORM::for_table('form_pdf')->where('pdf_file', $formname)->find_one();
+			$form_transform = $form_data->data_transform;
 		}
 
 		// Grab Submission Data.
@@ -99,8 +101,27 @@
 		$app->render($form_details->html_file, $data);
 	});
 
-	$app->group('/a', function() use($app) {
+	$app->group('/retrieve', function() use($app) {
+		$app->map('/', function() use($app) {
+			if($app->request->isPost()) {
+				$q = '?' . http_build_query(array(
+					'flatten' => $app->request->post('flat')
+				));
+				$app->redirect($app->urlFor('retrieve', array('rid' => $app->request->post('subid'))) . $q);
+			}
+			$app->render('retrieve.php');
+		})->via('GET', 'POST');
 
+		$app->get('/:rid', function($rid) use($app) {
+			// Get Submission details:
+			$sub_data = $app->jotform->getSubmission($rid);
+
+			$form_details = \ORM::for_table('form_pdf')->join('form', array('form.id', '=', 'form_pdf.form_id'))->where('form.jotformid', $sub_data['form_id'])->find_one();
+
+			$app->view->appendTitle('Retrieve');
+
+			$app->redirect(sprintf('/render/%s/%s', $rid, $form_details->pdf_file));
+		})->name('retrieve');
 	});
 
 	$app->run();
