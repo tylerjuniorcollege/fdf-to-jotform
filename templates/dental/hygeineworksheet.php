@@ -44,8 +44,12 @@ if(isset($data['answers'])) {
         </div>
         <div class="form-group">
           <label for="input_4" class="col-sm-2 control-label">TJC Email Address</label>
-          <div class="col-sm-10">
+          <div class="col-sm-5">
             <input type="text" class="form-control" name="q4_tjcEmail" placeholder="ex: student@tjc.edu" value="<?= (isset($answers[4]['answer']) ? $answers[4]['answer'] : '' )?>">
+          </div>
+          <label class="col-sm-1 control-label">TJC A#</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" name="q62_tjcA" placeholder="A########" value="<?= (isset($answers[62]['answer']) ? $answers[62]['answer'] : '' )?>">
           </div>
         </div>
         <div class="row page-header">
