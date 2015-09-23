@@ -261,7 +261,7 @@ if(isset($data['answers'])) {
     			var score = parseFloat($(this).val());
     			var points = 0;
     			if($.isNumeric(score)) {
-    				points = score * percentage;
+    				points = Math.round(score * percentage);
     			}
     			var scoreId = "#" + $(this).attr("id") + "Score";
     			$(scoreId).val(points);
