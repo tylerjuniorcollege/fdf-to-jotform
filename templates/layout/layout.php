@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="<?= $data['title']?>">
     <meta name="author" content="Tyler Junior College">
+    <link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico" />
 
     <title><?= $data['title']; ?> - Tyler Junior College</title>
 
