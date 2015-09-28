@@ -324,13 +324,13 @@ if(isset($data['answers'])) {
         var calcGpa = function() {
             var gpa = parseFloat($('#gpa').val()).toFixed(2);
 
-            var points = 0;
+            var points = gpa * 4;
             if(gpa > 3.50) {
-              points = 3;
+              points += 3;
             } else if(gpa >= 3.10 && gpa <= 3.50) {
-              points = 2;
+              points += 2;
             } else if(gpa >= 2.3 && gpa <= 3.10) {
-              points = 1;
+              points += 1;
             }
 
             $('#gpa_points').val(points);

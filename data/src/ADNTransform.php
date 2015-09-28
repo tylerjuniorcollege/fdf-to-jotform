@@ -67,6 +67,10 @@ class ADNTransform
 			// Points array.
 			$points = array();
 			
+			// Full name and A#
+			$output['full_name'] = $this->nullCheck($data['answers'][1]['prettyFormat']);
+			$output['a_number'] = $this->nullCheck($data['answers'][4]['answer']);
+			
 			// GPA Calculation.
 			$output['gpa'] = round($data['answers'][5]['answer'], 2);
 			$points['gpa'] = round(($data['answers'][5]['answer'] * 20), 2);
