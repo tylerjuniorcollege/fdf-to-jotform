@@ -64,26 +64,30 @@ if(isset($data['answers'])) {
           <div class="col-md-7">
             <div class="form-group">
               <label for="hesi_reading_score" class="col-sm-6 control-label">HESI Reading Score</label>
-              <div class="col-sm-6">
+              <div class="col-sm-6 input-group">
                 <input type="text" name="q5_hesiReading" class="hesi_score form-control percent-2" id="hesiReading" value="<?= (isset($answers[5]['answer']) ? $answers[5]['answer'] : ''); ?>">
+                <span class="input-group-addon">%</span>
               </div>
             </div>
             <div class="form-group">
               <label for="hesi_math_score" class="col-sm-6 control-label">HESI Math Score</label>
-              <div class="col-sm-6">
+              <div class="col-sm-6 input-group">
                 <input type="text" name="q6_hesiMath" class="hesi_score form-control percent-1" id="hesiMath" value="<?= (isset($answers[6]['answer']) ? $answers[6]['answer'] : ''); ?>">
+                <span class="input-group-addon">%</span>
               </div>
             </div>
             <div class="form-group">
               <label for="hesi_vocabulary_score" class="col-sm-6 control-label">HESI Vocabulary Score</label>
-              <div class="col-sm-6">
+              <div class="col-sm-6 input-group">
                 <input type="text" name="q7_hesiVocabulary" class="hesi_score form-control percent-2" id="hesiVocab" value="<?= (isset($answers[7]['answer']) ? $answers[7]['answer'] : ''); ?>">
+                <span class="input-group-addon">%</span>
               </div>
             </div>
             <div class="form-group">
               <label for="hesi_anatomy_score" class="col-sm-6 control-label">HESI Anatomy Score</label>
-              <div class="col-sm-6">
+              <div class="col-sm-6 input-group">
                 <input type="text" name="q8_hesiAnatomy" class="hesi_score form-control percent-1" id="hesiAnatomy" value="<?= (isset($answers[8]['answer']) ? $answers[8]['answer'] : ''); ?>">
+                <span class="input-group-addon">%</span>
               </div>
             </div>
           </div>

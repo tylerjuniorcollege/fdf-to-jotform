@@ -422,7 +422,7 @@ if(isset($data['answers'])) {
                 totals += parseFloat($(this).val());
             });
 
-            $('#hesiTotal_points').val(totals);
+            $('#hesiTotal_points').val(totals.toFixed(2));
 
             totalPoints();
         };
