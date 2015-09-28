@@ -65,6 +65,12 @@ if(isset($data['answers'])) {
                 Points: <input type="text" class="form-control points" id="gpa_points" value="0" readonly>
             </div>
         </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2">Addtional GPA Points</label>
+          <div class="col-md-2 col-md-offset-8">
+            Addtional Points: <input type="text" class="form-control points" id="gpa_additional_points" value="0" readonly>
+          </div>
+        </div>
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">HESI A2 Version 1 Testing</h3>
@@ -325,15 +331,18 @@ if(isset($data['answers'])) {
             var gpa = parseFloat(parseFloat($('#gpa').val()).toFixed(2));
 
             var points = gpa * 4;
+            var add_points = 0;
             if(gpa > 3.50) {
-              points += 3;
+              add_points += 3;
             } else if(gpa >= 3.10 && gpa <= 3.50) {
-              points += 2;
+              add_points += 2;
             } else if(gpa >= 2.3 && gpa <= 3.10) {
-              points += 1;
+              add_points += 1;
             }
 
             $('#gpa_points').val(points);
+            
+            $('#gpa_additional_points').val(add_points);
 
             totalPoints();
         };
