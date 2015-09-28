@@ -27,6 +27,29 @@ class VNETransform
 			return $points;
 		}
 		
+		public function gradeToBonusPoints($grade) {
+			$grade = $this->nullCheck($grade);
+			switch($grade) {
+				case 'A':
+					$points = 3;
+					break;
+
+				case 'B':
+					$points = 2;
+					break;
+
+				case 'C':
+					$points = 1;
+					break;
+
+				default:
+					$points = 0;
+					break;
+			}
+
+			return $points;
+		}
+		
 		public function boolToPoints($bool, $points) {
 			if($bool == 'Yes') {
 				return $points;
@@ -112,7 +135,7 @@ class VNETransform
 			$points['biology'] += $this->gradeToPoints($data['answers'][16]['answer']);
 			
 			// HITT Bonus Points
-			$points['hitt13051303'] = ($this->gradeToPoints($data['answers'][18]['answer']) + $this->gradeToPoints($data['answers'][19]['answer']));
+			$points['hitt13051303'] = ($this->gradeToBonusPoints($data['answers'][18]['answer']) + $this->gradeToBonusPoints($data['answers'][19]['answer']));
 			
 			foreach(array(
 				'current_certificate' => array('id' => 21, 'points' => 4),
