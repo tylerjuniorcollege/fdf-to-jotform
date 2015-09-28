@@ -56,6 +56,14 @@ class DATransform
 			
 			return "Off";
 		}
+		
+		public function nullCheck($value) {
+			if(!isset($value)) {
+				return NULL;
+			}
+			
+			return $value;
+		}
 
 		public function transform($data) {
 			// Output Array - this is what was submitted to the jotform.
