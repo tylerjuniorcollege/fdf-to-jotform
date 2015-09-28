@@ -78,10 +78,10 @@ class DATransform
 			
 			// HESI Calculation.
 			foreach(array(
-				'hesi_reading' => array('id' => 5, 'multiply' => 0.5),
-				'hesi_math' => array('id' => 6, 'multiply' => 0.10),
-				'hesi_vocab' => array('id' => 7, 'multiply' => 0.5),
-				'hesi_ap' => array('id' => 8, 'multiply' => 0.10)
+				'hesi_reading' => array('id' => 5, 'multiply' => 0.10),
+				'hesi_math' => array('id' => 6, 'multiply' => 0.05),
+				'hesi_vocab' => array('id' => 7, 'multiply' => 0.10),
+				'hesi_ap' => array('id' => 8, 'multiply' => 0.05)
 			) as $name => $var) {
 				$points[$name] = round((((float) $data['answers'][$var['id']]['answer']) * $var['multiply']), 2);
 			}
