@@ -88,7 +88,7 @@ class DATransform
 			
 			$points['residency'] = $this->boolToPoints($data['answers'][9]['answer'], 2);
 			$points['biol2402'] = $this->gradeToBiolPoints($data['answers'][10]['answer'], $data['answers'][11]['answer']);
-			$points['hprs12011103'] = $this->gradeToBonusPoints($data['answers'][13]['answer']);
+			$points['hprs12011103'] = $this->boolToPoints($data['answers'][13]['answer'], 1);
 			
 			
 			$output['total_points'] = 0;
