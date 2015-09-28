@@ -61,7 +61,7 @@ class VNETransform
 			$output['a_number'] = $this->nullCheck($data['answers'][4]['answer']);
 			
 			// GPA Calculation.
-			$gpa = round($this->nullCheck($data['answers'][5]['answer']), 2);
+			$gpa = $this->nullCheck($data['answers'][5]['answer']);
 			$points['gpa'] = round(($gpa * 4), 2);
 			$add_pts = 0; // Addtional GPA points for greater than 2.3 GPA
 			if($gpa > 3.5) {
