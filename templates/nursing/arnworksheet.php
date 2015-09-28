@@ -414,7 +414,7 @@ if(isset($data['answers'])) {
                     pointTotal = score * 0.05;
                 }
 
-                $(pointsEle).val(pointTotal);
+                $(pointsEle).val(pointTotal.toFixed(2));
             });
 
             var totals = 0;
