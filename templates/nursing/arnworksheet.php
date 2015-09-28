@@ -514,15 +514,15 @@ if(isset($data['answers'])) {
                 calcRmReq($(this));
             });
 
-            $('body').on('change load', '.grade-4', function(){ 
+            $('body').on('change', '.grade-4', function(){ 
                 calcBioGrade($(this)); 
             });
 
-            $('body').on('change load', '.grade-1', function(){ 
+            $('body').on('change', '.grade-1', function(){ 
                 calcBonusGrade($(this)); 
             });            
 
-            $('body').on('change load', '.completed', function() {
+            $('body').on('change', '.completed', function() {
               calcCompleted($(this));
             });
 
