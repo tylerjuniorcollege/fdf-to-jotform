@@ -471,9 +471,9 @@ if(isset($data['answers'])) {
 
             pointTotal = pointTotal + gp;
 
-            calcCompleted($("#" + completedEle));
-
             $('#' + pointEle).val(pointTotal);
+            
+            calcCompleted($("#" + completedEle));
 
             totalPoints();
         };
