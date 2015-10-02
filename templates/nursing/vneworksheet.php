@@ -56,10 +56,9 @@ if(isset($data['answers'])) {
             <h4>Follow the instructions below to calculate your admission points:</h4>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2">Required Grade Point Average</label>
+            <label class="control-label col-sm-2">Grade Point Average</label>
             <div class="col-sm-3">
                 <input type="text" name="q5_gpa" class="form-control" placeholder="Ex. 3.5" id="gpa" value="<?= (isset($answers[5]['answer']) ? $answers[5]['answer'] : '' )?>">
-                <p class="help-block">RGPA must be 2.5 or higher in all required courses.</p>
             </div>
             <div class="col-md-2 col-md-offset-5">
                 Points: <input type="text" class="form-control points" id="gpa_points" value="0" readonly>
@@ -134,6 +133,19 @@ if(isset($data['answers'])) {
             </div>
         </div>
         <div class="form-group">
+          <label for="input_10" class="col-sm-2 control-label">BIOL 2404</label>
+          <div class="col-sm-10">
+            <div class="form-group">
+              <div class="col-md-2">
+                Grade: <?= selectGrade('q25_biol2404', 'biol2404', 4, (isset($answers[25]['answer']) ? $answers[25]['answer'] : '')); ?>
+              </div>
+              <div class="col-md-2 col-md-offset-8">
+                Points: <input type="text" class="form-control points" id="biol2404_points" value="0" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
           <label for="input_10" class="col-sm-2 control-label">BIOL 2401</label>
           <div class="col-sm-10">
             <div class="form-group">
@@ -155,19 +167,6 @@ if(isset($data['answers'])) {
               </div>
               <div class="col-md-2 col-md-offset-8">
                 Points: <input type="text" class="form-control points" id="biol2402_points" value="0" readonly>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="input_10" class="col-sm-2 control-label">BIOL 2404</label>
-          <div class="col-sm-10">
-            <div class="form-group">
-              <div class="col-md-2">
-                Grade: <?= selectGrade('q25_biol2404', 'biol2404', 4, (isset($answers[25]['answer']) ? $answers[25]['answer'] : '')); ?>
-              </div>
-              <div class="col-md-2 col-md-offset-8">
-                Points: <input type="text" class="form-control points" id="biol2404_points" value="0" readonly>
               </div>
             </div>
           </div>
