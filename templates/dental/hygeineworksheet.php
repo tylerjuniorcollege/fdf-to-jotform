@@ -626,6 +626,7 @@ if(isset($data['answers'])) {
 
       var calcGrade = function(id) {
         var pointEle = $(id).attr("id").replace("_grade", "_points");
+        var gradeId = $(id).attr("id").replace("_grade", "");
         var pointTotal = 0; //parseFloat($('#' + pointEle).val()); - We need to reset this to calculate properly.
         var grade = $(id).val();
         var modifier = $(id).attr("class").substr(-1, 1);
@@ -633,6 +634,18 @@ if(isset($data['answers'])) {
         pointTotal = pointTotal + gradePoints(grade, modifier);
 
         $('#' + pointEle).val(pointTotal);
+
+        // Add/Remove Completed and Repeated Scores.
+        if ($('#' + gradeId + '_completed').length > 0) {
+          // Recalculate score.
+          calcCompleted($('#' + gradeId + '_completed'));
+        }
+
+        if ($('#' + gradeId + '_repeated').length > 0) {
+          // Recalculate score.
+          calcRepeated($('#' + gradeId + '_repeated'));
+        }
+
 
         totalPoints();
         return;
