@@ -51,8 +51,13 @@ class DentalHygieneTransform
 				'humafineArtpoints' => array('id' => 41, 'modifier' => 1),
 				'spchElectivepoints' => array('id' => 45, 'modifier' => 1)
 			) as $name => $grade) {
-				$points[$name] = $this->gradeToPoints($data['answers'][$grade['id']]['answer'], $grade['modifier']);
-				$total_points += $this->gradeToPoints($data['answers'][$grade['id']]['answer'], $grade['modifier']);
+				if(isset($data['answers'][$grade['id']]['answer']))
+					$answer = $data['answers'][$grade['id']]['answer'];
+				else
+					$answer = 'F';
+
+				$points[$name] = $this->gradeToPoints($answer, $grade['modifier']);
+				$total_points += $this->gradeToPoints($answer, $grade['modifier']);
 			}
 
 			// Calculate Completed Points
@@ -63,8 +68,13 @@ class DentalHygieneTransform
 				'chem1405completed' => 23,
 				'biol1322completed' => 61
 			) as $name => $id) {
-				$points[$name] = $this->boolToPoints($data['answers'][$id]['answer'], 1);
-				$total_points += $this->boolToPoints($data['answers'][$id]['answer'], 1);
+				if(isset($data['answers'][$id]['answer']))
+					$answer = $data['answers'][$id]['answer'];
+				else
+					$answer = "No";
+
+				$points[$name] = $this->boolToPoints($answer, 1);
+				$total_points += $this->boolToPoints($answer, 1);
 			}
 
 			// Calculate Repeated Points
@@ -80,8 +90,13 @@ class DentalHygieneTransform
 				'humafineArtrepeated' => array('id' => 44, 'points' => 0.5),
 				'spchElectiverepeated' => array('id' => 48, 'points' => 0.5)
 			) as $name => $val) {
-				$points[$name] = $this->boolToPoints($data['answers'][$val['id']]['answer'], $val['points']);
-				$total_points -= $this->boolToPoints($data['answers'][$val['id']]['answer'], $val['points']);
+				if(isset($data['answers'][$val['id']]['answer']))
+					$answer = $data['answers'][$val['id']]['answer'];
+				else
+					$answer = "No";
+
+				$points[$name] = $this->boolToPoints($answer, $val['points']);
+				$total_points -= $this->boolToPoints($answer, $val['points']);
 			}
 
 			// Calculate HESI Points from Composite Score.
@@ -101,8 +116,13 @@ class DentalHygieneTransform
 				'tjcDApoints' => array('id' => 54, 'points' => 3),
 				'CDApoints' => array('id' => 55, 'points' => 6)
 			) as $name => $val) {
-				$points[$name] = $this->boolToPoints($data['answers'][$val['id']]['answer'], $val['points']);
-				$total_points += $this->boolToPoints($data['answers'][$val['id']]['answer'], $val['points']);
+				if(isset($data['answers'][$val['id']]['answer']))
+					$answer = $data['answers'][$val['id']]['answer'];
+				else
+					$answer = "No";
+
+				$points[$name] = $this->boolToPoints($answer, $val['points']);
+				$total_points += $this->boolToPoints($answer, $val['points']);
 			}
 
 

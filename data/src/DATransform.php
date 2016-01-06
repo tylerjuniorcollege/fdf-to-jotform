@@ -73,7 +73,7 @@ class DATransform
 			$points = array();
 			
 			// Full name and A#
-			$output['full_name'] = $this->nullCheck($data['answers'][1]['prettyFormat']);
+			$output['full_name'] = (isset($data['answers'][1]['prettyFormat']) ? $data['answers'][1]['prettyFormat'] : NULL);
 			$output['a_number'] = $this->nullCheck($data['answers'][3]['answer']);
 			
 			// HESI Calculation.
