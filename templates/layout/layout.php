@@ -23,7 +23,7 @@
     background: url("http://www.tjc.edu/site/styles/css_img/mastBg.gif") center top #393939;
     border-top: 7px solid #000000;
     padding: 10px;
-    margin: 0 -15px;
+    margin: 0 -15px 10px;
     height: 81px;
     text-align: left;
     }
