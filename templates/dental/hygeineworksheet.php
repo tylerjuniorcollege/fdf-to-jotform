@@ -200,7 +200,7 @@ if(isset($data['answers'])) {
               <div class="col-md-2 checkbox">
                 <input type="hidden" name="q61_biol132261" value="No">
                 <label>
-                  <input type="checkbox" name="q61_biol132261" class="completed" id="biol1322_completed" value="Yes"<?=(isset($answers[23]['answer']) && $answers[23]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or better.
+                  <input type="checkbox" name="q61_biol132261" class="completed" id="biol1322_completed" value="Yes"<?=(isset($answers[61]['answer']) && $answers[61]['answer'] == "Yes" ? ' checked="checked"' : ''); ?>> Course was completed at TJC in the past 5 years with a "C" or better.
                 </label>
               </div>
               <div class="col-sm-2 checkbox">
